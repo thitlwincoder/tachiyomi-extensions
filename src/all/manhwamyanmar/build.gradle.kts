@@ -1,7 +1,7 @@
 @file:Suppress("UnusedImports")
 
 plugins {
-    id("tachiyomi.extension")
+    id("tachiyomi.extension") version "1.3.2"
 }
 
 extension {

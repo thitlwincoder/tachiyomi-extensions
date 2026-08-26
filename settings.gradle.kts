@@ -1,8 +1,10 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        maven("https://repo.mihon.app")
+        google()
+        mavenCentral()
         maven("https://maven.tachiyomi.org")
+        maven("https://www.jitpack.io")
     }
 }
 
