@@ -1,0 +1,16 @@
+{
+  "name": "thitlwincoder Extensions",
+  "website": "https://github.com/thitlwincoder/tachiyomi-extensions",
+  "extensions": [
+    {
+      "name": "Manhwa Myanmar (Adult)",
+      "pkg": "eu.kanade.tachiyomi.extension.all.manhwamyanmar",
+      "apk": "https://github.com/thitlwincoder/tachiyomi-extensions/releases/download/v1.0.0/manhwamyanmar.apk",
+      "lang": "my",
+      "code": 1,
+      "version": "1",
+      "authors": ["thitlwincoder"],
+      "nsfw": true
+    }
+  ]
+}

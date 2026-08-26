@@ -1,0 +1,42 @@
+name: Build Extensions
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build extensions
+        run: ./gradlew assembleRelease
+
+      - name: Collect APKs
+        run: |
+          mkdir -p apks
+          for f in $(find src -path '*/build/outputs/apk/release/*.apk'); do
+            mod=$(echo "$f" | sed -E 's#src/all/##; s#/build/.*##')
+            cp "$f" "apks/$mod.apk"
+          done
+          ls -la apks
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: apks/*.apk
+          fail_on_unmatched_files: false
