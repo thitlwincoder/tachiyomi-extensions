@@ -4,6 +4,8 @@ pluginManagement {
         google()
         mavenCentral()
         maven("https://maven.tachiyomi.org")
+        maven("https://repo.mihon.app")
+        maven("https://maven.keiyoushi.dev")
         maven("https://www.jitpack.io")
     }
 }

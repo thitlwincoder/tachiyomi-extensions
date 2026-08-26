@@ -126,7 +126,7 @@ class ManhwaMyanmar : HttpSource() {
         for (img in document.select("img")) {
             val src = img.attr("data-src").ifEmpty { img.attr("src") }
             if (src.isBlank() || src.contains("lazy_placeholder", true)) continue
-            if (imageHostPattern.matcher(src).matches()) pages.add(src)
+            if (imageHostPattern.matcher(src).find()) pages.add(src)
         }
         return pages.distinct().mapIndexed { index, url -> Page(index, "", url) }
     }
