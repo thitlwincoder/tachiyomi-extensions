@@ -1,0 +1,14 @@
+name: Probe Plugin
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe maven.tachiyomi.org
+        run: |
+          echo "### tachiyomi.org marker ###"
+          curl -s -L --max-time 30 "https://maven.tachiyomi.org/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" | head -30
+          echo "### tachiyomi.org impl ###"
+          curl -s -L --max-time 30 "https://maven.tachiyomi.org/com/tachiyomi/gradle/tachiyomi-extension/maven-metadata.xml" | head -30
+          echo "### mihon marker ###"
+          curl -s -L --max-time 30 "https://repo.mihon.app/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" | head -30
