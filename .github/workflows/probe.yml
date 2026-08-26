@@ -4,11 +4,16 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe maven.tachiyomi.org
+      - name: Probe hosts
         run: |
-          echo "### tachiyomi.org marker ###"
-          curl -s -L --max-time 30 "https://maven.tachiyomi.org/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" | head -30
-          echo "### tachiyomi.org impl ###"
-          curl -s -L --max-time 30 "https://maven.tachiyomi.org/com/tachiyomi/gradle/tachiyomi-extension/maven-metadata.xml" | head -30
-          echo "### mihon marker ###"
-          curl -s -L --max-time 30 "https://repo.mihon.app/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" | head -30
+          for u in \
+            "https://maven.tachiyomi.org/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" \
+            "https://repo.mihon.app/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" \
+            "https://maven.keiyoushi.dev/io/github/keiyoushi/gradle/extension/io.github.keiyoushi.gradle.extension.gradle.plugin/maven-metadata.xml" \
+            "https://maven.keiyoushi.dev/" \
+            "https://www.jitpack.io/com/github/tachiyomiorg/extensions-lib/maven-metadata.xml" \
+            "https://plugins.gradle.org/m2/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" ; do
+            code=$(curl -s -o /tmp/o -w "%{http_code}" -L --max-time 25 "$u")
+            echo "$code  $u"
+            if [ "$code" = "200" ]; then echo "----- body -----"; head -c 500 /tmp/o; echo; fi
+          done
