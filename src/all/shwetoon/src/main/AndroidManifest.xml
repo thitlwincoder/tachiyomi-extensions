@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="tachiyomi.extension" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Tachiyomi: ShweToon">
+        <meta-data android:name="tachiyomix.name" android:value="ShweToon" />
+        <meta-data android:name="tachiyomi.extension.class" android:value=".ExtensionGenerated" />
+        <meta-data android:name="tachiyomi.extension.nsfw" android:value="0" />
+        <meta-data android:name="tachiyomix.contentWarning" android:value="0" />
+        <meta-data android:name="tachiyomix.extensionLib" android:value="1.4" />
+    </application>
+</manifest>
