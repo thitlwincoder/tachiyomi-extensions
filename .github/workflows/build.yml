@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       KEY_STORE_PASSWORD: mmanhwapass
       KEY_PASSWORD: mmanhwapass
