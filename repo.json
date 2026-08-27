@@ -6,17 +6,26 @@
     "website": "https://github.com/thitlwincoder/tachiyomi-extensions"
   },
   "extensionList": {
-    "my": [
-      {
-        "name": "Manhwa Myanmar (Adult)",
-        "pkg": "eu.kanade.tachiyomi.extension.all.manhwamyanmar",
-        "apk": "https://github.com/thitlwincoder/tachiyomi-extensions/releases/download/v1.0.0/manhwamyanmar.apk",
-        "lang": "my",
-        "code": 1,
-        "version": "1",
-        "authors": ["thitlwincoder"],
-        "nsfw": true
-      }
-    ]
+    "extension": {
+      "name": "Manhwa Myanmar (Adult)",
+      "packageName": "eu.kanade.tachiyomi.extension.all.manhwamyanmar",
+      "resources": {
+        "apkUrl": "https://github.com/thitlwincoder/tachiyomi-extensions/releases/download/v1.0.0/manhwamyanmar.apk",
+        "iconUrl": "https://adult.manhwamyanmar.com/favicon.ico"
+      },
+      "extensionLib": "1.4",
+      "versionCode": 1,
+      "versionName": "1.4.1",
+      "contentWarning": "CONTENT_WARNING_NSFW",
+      "sources": [
+        {
+          "id": 8192465372019348567,
+          "name": "Manhwa Myanmar (Adult)",
+          "language": "my",
+          "homeUrl": "https://adult.manhwamyanmar.com",
+          "mirrorUrls": []
+        }
+      ]
+    }
   }
 }
