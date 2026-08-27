@@ -8,6 +8,7 @@ Unofficial [Tachiyomi](https://github.com/tachiyomiorg/tachiyomi)/[Mihon](https:
 |-----------|----------|-------|
 | Manhwa Myanmar (Adult) | `my` | NSFW — adult manhwa from `adult.manhwamyanmar.com` |
 | Manhwa Myanmar | `my` | SFW — manhwa from `manhwamyanmar.com` (chapters on `webtoon.manhwamyanmar.com`) |
+| ShweToon | `my` | Myanmar comics from `shwetoon.com` (data via `cdn.shwetoon.com` JSON API) |
 
 ## Install in Mihon / Tachiyomi
 
