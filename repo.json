@@ -25,7 +25,28 @@
             "language": "my",
             "homeUrl": "https://adult.manhwamyanmar.com",
             "mirrorUrls": []
+      },
+      {
+        "name": "Manhwa Myanmar",
+        "packageName": "eu.kanade.tachiyomi.extension.all.manhwamyanmarsfw",
+        "resources": {
+          "apkUrl": "https://github.com/thitlwincoder/tachiyomi-extensions/releases/download/v1.0.0/manhwamyanmarsfw.apk",
+          "iconUrl": "https://manhwamyanmar.com/favicon.ico"
+        },
+        "extensionLib": "1.4",
+        "versionCode": 1,
+        "versionName": "1.4.1",
+        "contentWarning": "CONTENT_WARNING_NONE",
+        "sources": [
+          {
+            "id": 7211313252873470896,
+            "name": "Manhwa Myanmar",
+            "language": "my",
+            "homeUrl": "https://manhwamyanmar.com",
+            "mirrorUrls": []
           }
+        ]
+      }
         ]
       }
     ]
