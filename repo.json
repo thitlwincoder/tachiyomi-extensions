@@ -38,7 +38,7 @@
         "extensionLib": "1.4",
         "versionCode": 1,
         "versionName": "1.4.1",
-        "contentWarning": "CONTENT_WARNING_NONE",
+        "contentWarning": "CONTENT_WARNING_SAFE",
         "sources": [
           {
             "id": 7211313252873470896,
@@ -59,7 +59,7 @@
         "extensionLib": "1.4",
         "versionCode": 1,
         "versionName": "1.4.1",
-        "contentWarning": "CONTENT_WARNING_NONE",
+        "contentWarning": "CONTENT_WARNING_SAFE",
         "sources": [
           {
             "id": 6268812935335590416,
@@ -80,7 +80,7 @@
         "extensionLib": "1.4",
         "versionCode": 1,
         "versionName": "1.4.1",
-        "contentWarning": "CONTENT_WARNING_NONE",
+        "contentWarning": "CONTENT_WARNING_SAFE",
         "sources": [
           {
             "id": 3078613328676475782,
