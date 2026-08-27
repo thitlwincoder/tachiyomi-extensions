@@ -7,13 +7,14 @@ Unofficial [Tachiyomi](https://github.com/tachiyomiorg/tachiyomi)/[Mihon](https:
 | Extension | Language | Notes |
 |-----------|----------|-------|
 | Manhwa Myanmar (Adult) | `my` | NSFW — adult manhwa from `adult.manhwamyanmar.com` |
+| Manhwa Myanmar | `my` | SFW — manhwa from `manhwamyanmar.com` (chapters on `webtoon.manhwamyanmar.com`) |
 
 ## Install in Mihon / Tachiyomi
 
 1. Open the app → **Settings → Extensions**.
 2. Under **Extension repos** (or **Sources → Add repo**), add:
    `https://github.com/thitlwincoder/tachiyomi-extensions`
-3. The extension above will appear — install **Manhwa Myanmar (Adult)**.
+3. The extensions above will appear — install **Manhwa Myanmar (Adult)** and/or **Manhwa Myanmar** as desired.
 
 > **Content warning:** this repo ships an NSFW source. Enable content warnings in the app if prompted.
 
