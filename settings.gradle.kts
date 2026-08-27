@@ -26,4 +26,11 @@ srcDir.walkTopDown()
         val modulePath = moduleDir.relativeTo(srcDir).path.replace(File.separatorChar, ':')
         include(":$modulePath")
         project(":$modulePath").projectDir = moduleDir
+        var ancestor = moduleDir.parentFile
+        while (ancestor != null && ancestor != srcDir) {
+            val ancestorPath = ancestor.relativeTo(srcDir).path.replace(File.separatorChar, ':')
+            val proj = project(":$ancestorPath")
+            if (!proj.projectDir.exists()) proj.projectDir = ancestor
+            ancestor = ancestor.parentFile
+        }
     }
