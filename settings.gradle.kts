@@ -3,9 +3,15 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven("https://maven.tachiyomi.org")
-        maven("https://repo.mihon.app")
-        maven("https://maven.keiyoushi.dev")
+        maven("https://www.jitpack.io")
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
         maven("https://www.jitpack.io")
     }
 }
