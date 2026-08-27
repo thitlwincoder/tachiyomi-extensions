@@ -1,7 +1,6 @@
 package eu.kanade.tachiyomi.extension.all.manhwamyanmar
 
 import eu.kanade.tachiyomi.network.GET
-import eu.kanade.tachiyomi.network.asJsoup
 import eu.kanade.tachiyomi.source.model.FilterList
 import eu.kanade.tachiyomi.source.model.MangasPage
 import eu.kanade.tachiyomi.source.model.Page
@@ -15,6 +14,8 @@ import org.jsoup.nodes.Element
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import java.util.regex.Pattern
 
+fun Response.asJsoup(): Document = org.jsoup.Jsoup.parse(body?.string().orEmpty())
+
 class ManhwaMyanmar : HttpSource() {
 
     override val name = "Manhwa Myanmar (Adult)"
@@ -25,10 +26,9 @@ class ManhwaMyanmar : HttpSource() {
     private val chapterBaseHost = "https://18.manhwamyanmar.com"
     private val imageHostPattern = Pattern.compile("""https?://[^\s"']+\.(?:jpg|jpeg|png|webp)""", Pattern.CASE_INSENSITIVE)
 
-    override val headers = headersBuilder()
+    override fun headersBuilder() = super.headersBuilder()
         .add("User-Agent", USER_AGENT)
         .add("Accept-Language", "en-US,en;q=0.9")
-        .build()
 
     // ----- Listing (popular / latest) -----
 
@@ -44,8 +44,8 @@ class ManhwaMyanmar : HttpSource() {
         return MangasPage(entries, hasNext)
     }
 
-    override fun latestMangaRequest(page: Int) = popularMangaRequest(page)
-    override fun latestMangaParse(response: Response) = popularMangaParse(response)
+    override fun latestUpdatesRequest(page: Int) = popularMangaRequest(page)
+    override fun latestUpdatesParse(response: Response) = popularMangaParse(response)
 
     private fun Element.toSManga(): SManga? {
         val link = selectFirst("a.gridmini-grid-post-thumbnail-link") ?: return null
@@ -75,7 +75,8 @@ class ManhwaMyanmar : HttpSource() {
 
     // ----- Manga details -----
 
-    override fun mangaDetailsParse(document: Document): SManga {
+    override fun mangaDetailsParse(response: Response): SManga {
+        val document = response.asJsoup()
         val content = document.selectFirst(".entry-content")
         val manga = SManga.create()
         manga.title = document.selectFirst("h1.post-title a")?.text()
@@ -121,7 +122,8 @@ class ManhwaMyanmar : HttpSource() {
 
     override fun pageListRequest(chapter: SChapter): Request = GET(chapter.url, headers)
 
-    override fun pageListParse(document: Document): List<Page> {
+    override fun pageListParse(response: Response): List<Page> {
+        val document = response.asJsoup()
         val pages = mutableListOf<String>()
         for (img in document.select("img")) {
             val src = img.attr("data-src").ifEmpty { img.attr("src") }
