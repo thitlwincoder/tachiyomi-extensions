@@ -16,7 +16,7 @@ import java.util.regex.Pattern
 
 fun Response.asJsoup(): Document = org.jsoup.Jsoup.parse(body?.string().orEmpty())
 
-class ManhwaMyanmar : HttpSource() {
+open class ManhwaMyanmar : HttpSource() {
 
     override val name = "Manhwa Myanmar (Adult)"
     override val baseUrl = "https://adult.manhwamyanmar.com"
