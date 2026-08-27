@@ -10,11 +10,10 @@ jobs:
       - name: Probe maven metadata
         run: |
           for url in \
-            "https://maven.tachiyomi.org/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" \
-            "https://repo.mihon.app/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" \
-            "https://maven.tachiyomi.org/tachiyomi/extension/maven-metadata.xml" \
-            "https://repo.mihon.app/tachiyomi/extension/maven-metadata.xml" ; do
+            "https://jitpack.io/com/github/tachiyomiorg/extensions-lib/master/extensions-lib-master.pom" \
+            "https://jitpack.io/com/github/keiyoushi/extensions-lib/18a8e26be2/extensions-lib-18a8e26be2.pom" \
+            "https://jitpack.io/com/github/keiyoushi/extensions-lib/6e0c96cea8/extensions-lib-6e0c96cea8.pom" ; do
             echo "=== $url ==="
-            curl -sL --max-time 30 "$url" || echo "FAILED"
+            curl -sL --max-time 40 "$url" -w "\nHTTP:%{http_code}\n" || echo "FAILED"
             echo
           done
