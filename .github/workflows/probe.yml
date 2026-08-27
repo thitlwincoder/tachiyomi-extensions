@@ -1,0 +1,20 @@
+name: Probe Plugin
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe maven metadata
+        run: |
+          for url in \
+            "https://maven.tachiyomi.org/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" \
+            "https://repo.mihon.app/tachiyomi/extension/tachiyomi.extension.gradle.plugin/maven-metadata.xml" \
+            "https://maven.tachiyomi.org/tachiyomi/extension/maven-metadata.xml" \
+            "https://repo.mihon.app/tachiyomi/extension/maven-metadata.xml" ; do
+            echo "=== $url ==="
+            curl -sL --max-time 30 "$url" || echo "FAILED"
+            echo
+          done
